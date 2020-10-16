@@ -163,7 +163,7 @@ static int ul_select(iso14a_card_select_t *card, bool clear_trace) {
 
 	UsbCommand resp;
 	bool ans = false;
-	ans = WaitForResponseTimeout(CMD_ACK, &resp, 1500);
+	ans = WaitForResponseTimeout(CMD_NACK, &resp, 500);
 	if (ans == 0 || resp.arg[0] == 0) {
 		PrintAndLogEx(WARNING, "iso14443a card select failed");
 		return 0;
